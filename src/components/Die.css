@@ -1,0 +1,23 @@
+.die {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    height: 52px;
+    width: 52px;
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.pip {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+}
+
+.filled {
+    background-color: #000000;
+}
