@@ -76,7 +76,7 @@ export default function App() {
                 key={die.id}
                 value={die.value}
                 isHeld={die.isHeld}
-                handleClick={()=>holdDice(die.id)}
+                handleClick={!gameStatus.win && (() => holdDice(die.id))}
             />
         )
 
