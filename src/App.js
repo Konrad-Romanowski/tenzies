@@ -47,12 +47,26 @@ export default function App() {
         }))
     }
 
+    function handleSettingsChange(e) {
+        const {name, type, value} = e.target;
+        setGameSettings(prevSettings => {
+            return {
+                ...prevSettings,
+                [name] : type === "checkbox" ? !prevSettings.displayDiceAsDigits : value               
+            }
+        })
+    }
+
     const [dice, setDice] = React.useState(allNewDice());
 
     const [gameStatus, setGameStatus] = React.useState({
         win: false,
         numOfRolls: 0
-    })
+    });
+
+    const [gameSettings, setGameSettings] = React.useState({
+        displayDiceAsDigits: false
+    });
 
     React.useEffect(()=>{
         let areSame = false;
@@ -76,7 +90,8 @@ export default function App() {
                 key={die.id}
                 value={die.value}
                 isHeld={die.isHeld}
-                handleClick={!gameStatus.win && (() => holdDice(die.id))}
+                handleClick={() => !gameStatus.win && holdDice(die.id)}
+                displayDiceAsDigits={gameSettings.displayDiceAsDigits}
             />
         )
 
@@ -84,6 +99,18 @@ export default function App() {
         <main className="game-container">
             {gameStatus.win && <Confetti />}
             <h1>Tenzies</h1>
+            
+            <form className="settings">
+                <input 
+                    id="toggle-digits"
+                    type="checkbox"
+                    name="displayDiceAsDigits"
+                    onChange={handleSettingsChange}
+                    checked={gameSettings.displayDiceAsDigits}
+                />
+                <label htmlFor="toggle-digits" >Display as digits</label>
+            </form>
+
             <p className="game-instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="score-container">Rolls: {gameStatus.numOfRolls}</div>
             <div className="dice-container">

@@ -7,20 +7,27 @@ export default function Die(props) {
     const styles = {
         backgroundColor: props.isHeld ? "#53d455" : "#ffffff"
     }
+    
+    let pipsElement = [];
 
-    const diceTemplate = diceTemplates[props.value];
-
-    const pipsElement = diceTemplate.map((isPip,index) => 
-        <div key={index} className={isPip ? "pip filled" : "pip"}></div>
-    )
+    if(!props.displayDiceAsDigits) {
+        const diceTemplate = diceTemplates[props.value]; 
+        pipsElement = diceTemplate.map((isPip,index) => 
+            <div key={index} className={isPip ? "pip filled" : "pip"}></div>
+        )
+    }
 
     return (
         <div
-            className="die"
+            className={`die ${props.displayDiceAsDigits ? "die-digits" : "die-pips"}`}
             style={styles}
             onClick={props.handleClick}
         >
-            {pipsElement}
+            {
+                props.displayDiceAsDigits ? 
+                props.value :
+                pipsElement
+            }
         </div>
     )
 }

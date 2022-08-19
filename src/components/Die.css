@@ -1,15 +1,26 @@
 .die {
+    height: 52px;
+    width: 52px;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.die-digits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.die-pips {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
-    height: 52px;
-    width: 52px;
     padding: 6px;
-    border-radius: 8px;
-    cursor: pointer;
-    user-select: none;
 }
 
 .pip {
