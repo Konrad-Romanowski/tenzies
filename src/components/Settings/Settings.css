@@ -1,0 +1,40 @@
+.switch-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    left: -100vw;
+    top: -100vh;
+}
+
+input[type="checkbox"] + label {
+    font-size: 28px;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    height: 1em;
+    width: 2em;
+    border-radius: 4px;
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+input[type="checkbox"] + label::before {
+    height: 1em;
+    width: 1em;
+    border-radius: 4px;
+    position: absolute;
+    background-color: #000;
+    content: "";
+    transition: transform .1s linear;
+    transform: translateX(1em);
+}
+
+input[type="checkbox"]:checked + label::before {
+    transform: translateX(0);
+}

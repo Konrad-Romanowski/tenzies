@@ -1,8 +1,9 @@
 import React from 'react';
 import { nanoid } from 'nanoid'
-import Die from './components/Die.js';
+import Die from './components/Die/Die.js';
 import './App.css';
 import Confetti from 'react-confetti';
+import Settings from './components/Settings/Settings.js';
 
 export default function App() {
 
@@ -99,17 +100,11 @@ export default function App() {
         <main className="game-container">
             {gameStatus.win && <Confetti />}
             <h1>Tenzies</h1>
-            
-            <form className="settings">
-                <input 
-                    id="toggle-digits"
-                    type="checkbox"
-                    name="displayDiceAsDigits"
-                    onChange={handleSettingsChange}
-                    checked={gameSettings.displayDiceAsDigits}
-                />
-                <label htmlFor="toggle-digits" >Display as digits</label>
-            </form>
+
+            <Settings 
+                handleSettingsChange={handleSettingsChange}
+                displayDiceAsDigits={gameSettings.displayDiceAsDigits}
+            />
 
             <p className="game-instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="score-container">Rolls: {gameStatus.numOfRolls}</div>
