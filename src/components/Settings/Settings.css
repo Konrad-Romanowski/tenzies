@@ -1,3 +1,56 @@
+.settings-container {
+    position: fixed;
+    top: 58px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,.5);
+    height: 8rem;
+    width: 8rem;
+    border-radius: 16px 0 0 16px;
+    transform: translateX(8rem);
+    transition: transform .3s ease-in-out;
+}
+
+.settings-container.active {
+    transform: translateX(0);
+}
+
+.settings-button {
+    position: fixed;
+    top:0;
+    right: 0;
+    background: none;
+    border: none;
+}
+
+.settings-icon {
+    transition: all 0.3s ease-in-out;
+}
+
+.settings-container.active + .settings-button > .settings-icon {
+    transform: rotate(90deg);
+}
+
+.settings-button:hover > .settings-icon {
+    filter: drop-shadow( 0 0 8px white);
+}
+
+.settings-button:active {
+    outline: none;
+}
+
+.settings-icon {
+    fill: #fff;
+    padding: 12px;
+    height: 36px;
+    width: auto;
+    box-sizing: content-box;
+    cursor: pointer;
+}
+
 .switch-container {
     display: flex;
     justify-content: center;
@@ -29,12 +82,13 @@ input[type="checkbox"] + label::before {
     width: 1em;
     border-radius: 4px;
     position: absolute;
-    background-color: #000;
     content: "";
-    transition: transform .1s linear;
+    transition: transform .1s linear, background-color .1s ease-in-out;
     transform: translateX(1em);
+    background-color: lime;
 }
 
 input[type="checkbox"]:checked + label::before {
     transform: translateX(0);
+    background-color: orange;
 }

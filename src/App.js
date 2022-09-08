@@ -96,22 +96,27 @@ export default function App() {
             />
         )
 
-    return (
-        <main className="game-container">
-            {gameStatus.win && <Confetti />}
-            <h1>Tenzies</h1>
-
+        return (
+        <>
             <Settings 
                 handleSettingsChange={handleSettingsChange}
                 displayDiceAsDigits={gameSettings.displayDiceAsDigits}
             />
-
-            <p className="game-instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-            <div className="score-container">Rolls: {gameStatus.numOfRolls}</div>
-            <div className="dice-container">
-                {diceElements}
-            </div>
-            <button onClick={rollDice}>{gameStatus.win ? "New game" : "Roll"}</button>
-        </main>
+            <main className="game-container">
+                {gameStatus.win && <Confetti />}
+                <h1>Tenzies</h1>
+                <p className="game-instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+                <div className="score-container">Rolls: {gameStatus.numOfRolls}</div>
+                <div className="dice-container">
+                    {diceElements}
+                </div>
+                <button
+                    className="roll-dice-button"
+                    onClick={rollDice}
+                >
+                    {gameStatus.win ? "New game" : "Roll"}
+                </button>
+            </main>
+        </>
     )
 }

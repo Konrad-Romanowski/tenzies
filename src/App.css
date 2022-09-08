@@ -5,13 +5,15 @@
     font-family: 'Karla', sans-serif;
 }
 
-body {
+.wrapper {
     background-color: #060d2c;
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .game-container {
@@ -21,8 +23,7 @@ body {
     align-items: center;
 
     height: 500px;
-    min-width: 500px;
-    width: 50vw;
+    max-width: 600px;
     border-radius: 10px;
 
     background-color: #ebe4c5;
@@ -62,7 +63,7 @@ body {
     margin: -8px auto;
 }
 
-button {
+.roll-dice-button {
     font-size: 24px;
     font-weight: 600;
     width: 150px;
@@ -75,6 +76,21 @@ button {
     margin-top: 16px;
 }
 
-button:active {
+.roll-dice-button:active {
     box-shadow: inset 2px 2px 8px 0px #222;
+}
+
+@media (max-width: 450px) {
+    .dice-container {
+        gap: 16px
+    }
+}
+
+@media (max-height:450px) and (orientation: landscape) {
+    .wrapper {
+        height: auto;
+    }
+    .game-container {
+        width:80vw;
+    }
 }
