@@ -7,7 +7,8 @@ Simple dice game written in React as a part of the [Scrimba's free React course]
 #### Features added to the original project:
 - added dots (pips) on the dice,
 - option to switch how the dice are displayed: digits or dots (pips),
-- number of rolls tracker.
+- number of rolls tracker,
+- responsiveness.
 
 ## What I have learnt during the project and the course?
 #### Basics of React.js:
